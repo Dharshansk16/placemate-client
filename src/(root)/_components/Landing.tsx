@@ -6,8 +6,8 @@ import { FaApple } from "react-icons/fa";
 import { FaAmazon } from "react-icons/fa";
 import { IoIosListBox } from "react-icons/io";
 import { FaChartPie } from "react-icons/fa";
-import SearchBar from "@/_components/SearchBar";
-import CompanyCard from "@/_components/CompanyCard";
+import SearchBar from "@/components/ui/SearchBar";
+import CompanyCard from "@/components/ui/CompanyCard";
 
 const Landing = () => {
   return (
@@ -42,8 +42,8 @@ const Landing = () => {
       </div>
 
       <SearchBar
-        div_variant="bg-white w-1/2 rounded-2xl h-auto p-4 flex items-center border-2 border-gray-300"
-        input_variant="bg-transparent h-4 text-lg w-full ml-5 border-none focus: outline-none"
+        div_variant="bg-white w-[50%] rounded-2xl h-auto p-4 flex items-center border-2 border-gray-300"
+        input_variant="bg-transparent h-4 text-lg w-full ml-5 border-none focus: outline-none py-3"
         placeholder="Search for companies"
       />
 
@@ -53,7 +53,7 @@ const Landing = () => {
         </Button>
       </div>
       <div className="w-full flex flex-row">
-        <div className="w-[50%] flex justify-start items-center mt-3 gap-4">
+        <div className="w-[50%] flex justify-start items-center mt-3 gap-8">
           <CompanyCard
             companyName="Google"
             description="Learn about the culture"
@@ -61,7 +61,7 @@ const Landing = () => {
           />
           <CompanyCard
             companyName="Apple"
-            description="Explore career opportunities"
+            description="Explore opportunities"
             icon={FaApple}
           />
           <CompanyCard
