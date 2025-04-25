@@ -42,7 +42,7 @@ const Landing = () => {
       </div>
 
       <SearchBar
-        div_variant="bg-white w-[50%] rounded-2xl h-auto p-4 flex items-center border-2 border-gray-300"
+        div_variant="bg-white w-[46%] rounded-2xl h-auto p-4 flex items-center border-2 border-gray-300"
         input_variant="bg-transparent h-4 text-lg w-full ml-5 border-none focus: outline-none py-3"
         placeholder="Search for companies"
       />
@@ -70,12 +70,9 @@ const Landing = () => {
             icon={FaAmazon}
           />
         </div>
-        <div className="w-[650px] flex h-8 flex-col ml-10 mt-6 ">
-          <div className="text-lg font-semibold flex">
-            <h4>Featured Companies</h4>
-          </div>
+        <div className="fixed bottom-25 left-1/2 items-center justify-center w-[650px] h-8 flex flex-col">
           <div className="w-auto flex">
-            <div className="border-2 border-gray-400 w-[300px] h-auto mt-2 rounded-xl p-3 flex items-center cursor-pointer hover:scale-95 transition-all">
+            <div className="border-2 border-gray-200 w-[300px] h-auto mt-2 rounded-xl p-4 py-1 flex items-center cursor-pointer hover:scale-95 transition-all">
               <IoIosListBox className="flex text-6xl" />
               <div className="mx-3 my-2">
                 <h3 className="font-semibold text-xl">Interview Process</h3>
@@ -83,7 +80,7 @@ const Landing = () => {
               </div>
             </div>
 
-            <div className="border-2 border-gray-400 w-[300px] h-auto mt-2 rounded-xl p-3 flex items-center ml-4 cursor-pointer hover:scale-95 transition-all">
+            <div className="border-2 border-gray-200 w-[300px] h-auto mt-2 rounded-xl p-4 py-1 flex items-center ml-4 cursor-pointer hover:scale-95 transition-all">
               <FaChartPie className="flex text-6xl" />
               <div className="mx-3 my-2">
                 <h3 className="font-semibold text-xl">Work Culture</h3>
