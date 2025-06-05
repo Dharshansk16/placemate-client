@@ -1,4 +1,8 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import React from "react";
+
 import { FaLocationDot } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
@@ -9,7 +13,37 @@ import { FaChartPie } from "react-icons/fa";
 import SearchBar from "@/components/ui/SearchBar";
 import CompanyCard from "@/components/ui/CompanyCard";
 
+const featuredCompanies = [
+  {
+    companyName: "Google",
+    description: "Learn about the culture",
+    icon: FcGoogle,
+  },
+  {
+    companyName: "Apple",
+    description: "Explore new opportunities",
+    icon: FaApple,
+  },
+  {
+    companyName: "Amazon",
+    description: "Discover hiring process",
+    icon: FaAmazon,
+  },
+];
+
 const Landing = () => {
+  const router = useRouter();
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const companyName = event.currentTarget.value.trim();
+      if (companyName) {
+        const slug = companyName.toLowerCase().replace(/\s+/g, "-");
+        router.push(`/dashboard/company/${slug}`);
+      }
+    }
+  };
+
   return (
     <section className="mx-10 my-6">
       <div className="flex p-2 h-auto w-[1024] justify-between items-center">
@@ -45,6 +79,7 @@ const Landing = () => {
         div_variant="bg-white w-[46%] rounded-2xl h-auto p-4 flex items-center border-2 border-gray-300"
         input_variant="bg-transparent h-4 text-lg w-full ml-5 border-none focus: outline-none py-3"
         placeholder="Search for companies"
+        onKeyDownMethod={handleKeyDown}
       />
 
       <div className="mt-6">
@@ -53,23 +88,16 @@ const Landing = () => {
         </Button>
       </div>
       <div className="w-full flex flex-row">
-        <div className="w-[50%] flex justify-start items-center mt-3 gap-8">
-          <CompanyCard
-            companyName="Google"
-            description="Learn about the culture"
-            icon={FcGoogle}
-          />
-          <CompanyCard
-            companyName="Apple"
-            description="Explore opportunities"
-            icon={FaApple}
-          />
-          <CompanyCard
-            companyName="Amazon"
-            description="Discover hiring process"
-            icon={FaAmazon}
-          />
-        </div>
+        <section className="mt-8 w-full max-w-4xl flex flex-wrap gap-8">
+          {featuredCompanies.map(({ companyName, description, icon: Icon }) => (
+            <CompanyCard
+              key={companyName}
+              companyName={companyName}
+              description={description}
+              icon={Icon}
+            />
+          ))}
+        </section>
         <div className="fixed bottom-25 left-1/2 items-center justify-center w-[650px] h-8 flex flex-col">
           <div className="w-auto flex">
             <div className="border-2 border-gray-200 w-[300px] h-auto mt-2 rounded-xl p-4 py-1 flex items-center cursor-pointer hover:scale-95 transition-all">
